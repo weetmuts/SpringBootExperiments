@@ -1,0 +1,4 @@
+
+info:
+    foo:
+        url: http://server.foo:1234/foo
