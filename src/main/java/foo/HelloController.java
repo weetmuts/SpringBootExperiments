@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class HelloController {
 
+    @Autowired
+    SlowService slow;
+
     @RequestMapping("/")
     public String index() {
         try {
-            return "Greetings from Spring Boot!";
+            String customer = slow.loadCustomer(123);
+            return "Greetings from Spring Boot! "+customer;
         } catch (Exception e) {
             return "Internal error "+e.toString();
         }
